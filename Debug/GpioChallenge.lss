@@ -1,0 +1,909 @@
+
+GpioChallenge.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000488  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000004fc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000009  00800060  00800060  000004fc  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000004fc  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000052c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000168  00000000  00000000  00000568  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00001a9f  00000000  00000000  000006d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000913  00000000  00000000  0000216f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000cd3  00000000  00000000  00002a82  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000324  00000000  00000000  00003758  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000540f  00000000  00000000  00003a7c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000e80  00000000  00000000  00008e8b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000170  00000000  00000000  00009d0b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  0000166f  00000000  00000000  00009e7b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	29 c0       	rjmp	.+82     	; 0x54 <__ctors_end>
+   2:	00 00       	nop
+   4:	37 c0       	rjmp	.+110    	; 0x74 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	35 c0       	rjmp	.+106    	; 0x74 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	33 c0       	rjmp	.+102    	; 0x74 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	31 c0       	rjmp	.+98     	; 0x74 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	2f c0       	rjmp	.+94     	; 0x74 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	2d c0       	rjmp	.+90     	; 0x74 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	2b c0       	rjmp	.+86     	; 0x74 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	29 c0       	rjmp	.+82     	; 0x74 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	27 c0       	rjmp	.+78     	; 0x74 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	25 c0       	rjmp	.+74     	; 0x74 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	fc c0       	rjmp	.+504    	; 0x226 <__vector_11>
+  2e:	00 00       	nop
+  30:	21 c0       	rjmp	.+66     	; 0x74 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	1f c0       	rjmp	.+62     	; 0x74 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	1d c0       	rjmp	.+58     	; 0x74 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	1b c0       	rjmp	.+54     	; 0x74 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	19 c0       	rjmp	.+50     	; 0x74 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	17 c0       	rjmp	.+46     	; 0x74 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	15 c0       	rjmp	.+42     	; 0x74 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	13 c0       	rjmp	.+38     	; 0x74 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	11 c0       	rjmp	.+34     	; 0x74 <__bad_interrupt>
+	...
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_clear_bss>:
+  60:	20 e0       	ldi	r18, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	01 c0       	rjmp	.+2      	; 0x6a <.do_clear_bss_start>
+
+00000068 <.do_clear_bss_loop>:
+  68:	1d 92       	st	X+, r1
+
+0000006a <.do_clear_bss_start>:
+  6a:	a9 36       	cpi	r26, 0x69	; 105
+  6c:	b2 07       	cpc	r27, r18
+  6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
+  70:	93 d0       	rcall	.+294    	; 0x198 <main>
+  72:	08 c2       	rjmp	.+1040   	; 0x484 <_exit>
+
+00000074 <__bad_interrupt>:
+  74:	c5 cf       	rjmp	.-118    	; 0x0 <__vectors>
+
+00000076 <MotorDC_Init>:
+
+//Initialize the DC motor Pins
+
+void MotorDC_Init(En_motorType_t en_motor_number){
+
+gpioPinDirection(MOTOR_EN_1_GPIO,MOTOR_EN_1_BIT,OUTPUT);
+  76:	4f ef       	ldi	r20, 0xFF	; 255
+  78:	60 e1       	ldi	r22, 0x10	; 16
+  7a:	83 e0       	ldi	r24, 0x03	; 3
+  7c:	8b d1       	rcall	.+790    	; 0x394 <gpioPinDirection>
+gpioPinDirection(MOTOR_OUT_1A_GPIO,MOTOR_OUT_1A_BIT,OUTPUT);
+  7e:	4f ef       	ldi	r20, 0xFF	; 255
+  80:	64 e0       	ldi	r22, 0x04	; 4
+  82:	83 e0       	ldi	r24, 0x03	; 3
+  84:	87 d1       	rcall	.+782    	; 0x394 <gpioPinDirection>
+gpioPinDirection(MOTOR_OUT_1B_GPIO,MOTOR_OUT_1B_BIT,OUTPUT);
+  86:	4f ef       	ldi	r20, 0xFF	; 255
+  88:	68 e0       	ldi	r22, 0x08	; 8
+  8a:	83 e0       	ldi	r24, 0x03	; 3
+  8c:	83 d1       	rcall	.+774    	; 0x394 <gpioPinDirection>
+
+//Initialize Motor 2
+
+gpioPinDirection(MOTOR_EN_2_GPIO,MOTOR_EN_2_BIT,OUTPUT);
+  8e:	4f ef       	ldi	r20, 0xFF	; 255
+  90:	60 e2       	ldi	r22, 0x20	; 32
+  92:	83 e0       	ldi	r24, 0x03	; 3
+  94:	7f d1       	rcall	.+766    	; 0x394 <gpioPinDirection>
+gpioPinDirection(MOTOR_OUT_2A_GPIO,MOTOR_OUT_2A_BIT,OUTPUT);
+  96:	4f ef       	ldi	r20, 0xFF	; 255
+  98:	60 e4       	ldi	r22, 0x40	; 64
+  9a:	83 e0       	ldi	r24, 0x03	; 3
+  9c:	7b d1       	rcall	.+758    	; 0x394 <gpioPinDirection>
+gpioPinDirection(MOTOR_OUT_2B_GPIO,MOTOR_OUT_2B_BIT,OUTPUT);
+  9e:	4f ef       	ldi	r20, 0xFF	; 255
+  a0:	60 e8       	ldi	r22, 0x80	; 128
+  a2:	83 e0       	ldi	r24, 0x03	; 3
+  a4:	77 c1       	rjmp	.+750    	; 0x394 <gpioPinDirection>
+  a6:	08 95       	ret
+
+000000a8 <MotorDC_Dir>:
+  a8:	88 23       	and	r24, r24
+
+}
+
+void MotorDC_Dir(En_motorType_t en_motor_number, En_motorDir_t en_motor_dir){
+	switch (en_motor_number)
+  aa:	19 f0       	breq	.+6      	; 0xb2 <MotorDC_Dir+0xa>
+  ac:	81 30       	cpi	r24, 0x01	; 1
+  ae:	31 f1       	breq	.+76     	; 0xfc <MotorDC_Dir+0x54>
+  b0:	08 95       	ret
+	{
+	case MOT_1:
+		switch (en_motor_dir)
+  b2:	61 30       	cpi	r22, 0x01	; 1
+  b4:	89 f0       	breq	.+34     	; 0xd8 <MotorDC_Dir+0x30>
+  b6:	18 f0       	brcs	.+6      	; 0xbe <MotorDC_Dir+0x16>
+  b8:	62 30       	cpi	r22, 0x02	; 2
+  ba:	b9 f0       	breq	.+46     	; 0xea <MotorDC_Dir+0x42>
+  bc:	08 95       	ret
+		{
+		case STOP:
+			 gpioPinWrite(MOTOR_EN_1_GPIO, MOTOR_EN_1_BIT, LOW);
+  be:	40 e0       	ldi	r20, 0x00	; 0
+  c0:	60 e1       	ldi	r22, 0x10	; 16
+  c2:	83 e0       	ldi	r24, 0x03	; 3
+  c4:	a3 d1       	rcall	.+838    	; 0x40c <gpioPinWrite>
+			 gpioPinWrite(MOTOR_OUT_1A_GPIO, MOTOR_OUT_1A_BIT, LOW);
+  c6:	40 e0       	ldi	r20, 0x00	; 0
+  c8:	64 e0       	ldi	r22, 0x04	; 4
+  ca:	83 e0       	ldi	r24, 0x03	; 3
+  cc:	9f d1       	rcall	.+830    	; 0x40c <gpioPinWrite>
+			 gpioPinWrite(MOTOR_OUT_1B_GPIO, MOTOR_OUT_1B_BIT, LOW);
+  ce:	40 e0       	ldi	r20, 0x00	; 0
+  d0:	68 e0       	ldi	r22, 0x08	; 8
+  d2:	83 e0       	ldi	r24, 0x03	; 3
+  d4:	9b c1       	rjmp	.+822    	; 0x40c <gpioPinWrite>
+		break;
+  d6:	08 95       	ret
+		
+		case FORWARD:
+			 gpioPinWrite(MOTOR_OUT_1A_GPIO, MOTOR_OUT_1A_BIT, HIGH);
+  d8:	4f ef       	ldi	r20, 0xFF	; 255
+  da:	64 e0       	ldi	r22, 0x04	; 4
+  dc:	83 e0       	ldi	r24, 0x03	; 3
+  de:	96 d1       	rcall	.+812    	; 0x40c <gpioPinWrite>
+			 gpioPinWrite(MOTOR_OUT_1B_GPIO, MOTOR_OUT_1B_BIT, LOW);
+  e0:	40 e0       	ldi	r20, 0x00	; 0
+  e2:	68 e0       	ldi	r22, 0x08	; 8
+  e4:	83 e0       	ldi	r24, 0x03	; 3
+  e6:	92 c1       	rjmp	.+804    	; 0x40c <gpioPinWrite>
+		break;
+  e8:	08 95       	ret
+		
+		case BACKWARD:
+			 gpioPinWrite(MOTOR_OUT_1A_GPIO, MOTOR_OUT_1A_BIT,LOW);
+  ea:	40 e0       	ldi	r20, 0x00	; 0
+  ec:	64 e0       	ldi	r22, 0x04	; 4
+  ee:	83 e0       	ldi	r24, 0x03	; 3
+  f0:	8d d1       	rcall	.+794    	; 0x40c <gpioPinWrite>
+			 gpioPinWrite(MOTOR_OUT_1B_GPIO, MOTOR_OUT_1B_BIT, HIGH);
+  f2:	4f ef       	ldi	r20, 0xFF	; 255
+  f4:	68 e0       	ldi	r22, 0x08	; 8
+  f6:	83 e0       	ldi	r24, 0x03	; 3
+  f8:	89 c1       	rjmp	.+786    	; 0x40c <gpioPinWrite>
+  fa:	08 95       	ret
+		break;		
+  fc:	61 30       	cpi	r22, 0x01	; 1
+		}
+		break;
+	
+	case MOT_2:
+		switch (en_motor_dir)
+  fe:	89 f0       	breq	.+34     	; 0x122 <MotorDC_Dir+0x7a>
+ 100:	18 f0       	brcs	.+6      	; 0x108 <MotorDC_Dir+0x60>
+ 102:	62 30       	cpi	r22, 0x02	; 2
+ 104:	b9 f0       	breq	.+46     	; 0x134 <MotorDC_Dir+0x8c>
+ 106:	08 95       	ret
+		{
+			
+			case STOP:
+				 gpioPinWrite(MOTOR_EN_2_GPIO, MOTOR_EN_2_BIT, LOW);
+ 108:	40 e0       	ldi	r20, 0x00	; 0
+ 10a:	60 e2       	ldi	r22, 0x20	; 32
+ 10c:	83 e0       	ldi	r24, 0x03	; 3
+ 10e:	7e d1       	rcall	.+764    	; 0x40c <gpioPinWrite>
+				 gpioPinWrite(MOTOR_OUT_2A_GPIO, MOTOR_OUT_2A_BIT, LOW);
+ 110:	40 e0       	ldi	r20, 0x00	; 0
+ 112:	60 e4       	ldi	r22, 0x40	; 64
+ 114:	83 e0       	ldi	r24, 0x03	; 3
+ 116:	7a d1       	rcall	.+756    	; 0x40c <gpioPinWrite>
+				 gpioPinWrite(MOTOR_OUT_2B_GPIO, MOTOR_OUT_2B_BIT, LOW);
+ 118:	40 e0       	ldi	r20, 0x00	; 0
+ 11a:	60 e8       	ldi	r22, 0x80	; 128
+ 11c:	83 e0       	ldi	r24, 0x03	; 3
+ 11e:	76 c1       	rjmp	.+748    	; 0x40c <gpioPinWrite>
+			break;
+ 120:	08 95       	ret
+			
+			case FORWARD:
+				 gpioPinWrite(MOTOR_OUT_2A_GPIO, MOTOR_OUT_2A_BIT, HIGH);
+ 122:	4f ef       	ldi	r20, 0xFF	; 255
+ 124:	60 e4       	ldi	r22, 0x40	; 64
+ 126:	83 e0       	ldi	r24, 0x03	; 3
+ 128:	71 d1       	rcall	.+738    	; 0x40c <gpioPinWrite>
+				 gpioPinWrite(MOTOR_OUT_2B_GPIO, MOTOR_OUT_2B_BIT, LOW);
+ 12a:	40 e0       	ldi	r20, 0x00	; 0
+ 12c:	60 e8       	ldi	r22, 0x80	; 128
+ 12e:	83 e0       	ldi	r24, 0x03	; 3
+ 130:	6d c1       	rjmp	.+730    	; 0x40c <gpioPinWrite>
+			break;
+ 132:	08 95       	ret
+			
+			case BACKWARD:
+				 gpioPinWrite(MOTOR_OUT_2A_GPIO, MOTOR_OUT_2A_BIT, LOW);
+ 134:	40 e0       	ldi	r20, 0x00	; 0
+ 136:	60 e4       	ldi	r22, 0x40	; 64
+ 138:	83 e0       	ldi	r24, 0x03	; 3
+ 13a:	68 d1       	rcall	.+720    	; 0x40c <gpioPinWrite>
+ 13c:	4f ef       	ldi	r20, 0xFF	; 255
+				 gpioPinWrite(MOTOR_OUT_2B_GPIO, MOTOR_OUT_2B_BIT, HIGH);
+ 13e:	60 e8       	ldi	r22, 0x80	; 128
+ 140:	83 e0       	ldi	r24, 0x03	; 3
+ 142:	64 c1       	rjmp	.+712    	; 0x40c <gpioPinWrite>
+ 144:	08 95       	ret
+
+00000146 <MotorDC_Speed_PollingWithT0>:
+ 146:	cf 93       	push	r28
+ 148:	c8 2f       	mov	r28, r24
+}
+
+
+void MotorDC_Speed_PollingWithT0(uint8_t u8_motor_speed){
+	
+			for (counter_motor_speed=1;counter_motor_speed<u8_motor_speed;counter_motor_speed++)
+ 14a:	81 e0       	ldi	r24, 0x01	; 1
+ 14c:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <counter_motor_speed>
+ 150:	c2 30       	cpi	r28, 0x02	; 2
+ 152:	60 f0       	brcs	.+24     	; 0x16c <MotorDC_Speed_PollingWithT0+0x26>
+			{
+				timer0SwPWM(counter_motor_speed,250);
+ 154:	6a ef       	ldi	r22, 0xFA	; 250
+ 156:	d1 d0       	rcall	.+418    	; 0x2fa <timer0SwPWM>
+				timer2DelayMs(50);
+ 158:	82 e3       	ldi	r24, 0x32	; 50
+ 15a:	90 e0       	ldi	r25, 0x00	; 0
+ 15c:	05 d1       	rcall	.+522    	; 0x368 <timer2DelayMs>
+}
+
+
+void MotorDC_Speed_PollingWithT0(uint8_t u8_motor_speed){
+	
+			for (counter_motor_speed=1;counter_motor_speed<u8_motor_speed;counter_motor_speed++)
+ 15e:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <counter_motor_speed>
+ 162:	8f 5f       	subi	r24, 0xFF	; 255
+ 164:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <counter_motor_speed>
+ 168:	8c 17       	cp	r24, r28
+ 16a:	a0 f3       	brcs	.-24     	; 0x154 <MotorDC_Speed_PollingWithT0+0xe>
+			{
+				timer0SwPWM(counter_motor_speed,250);
+				timer2DelayMs(50);
+			}
+			
+			timer2DelayMs(100);
+ 16c:	84 e6       	ldi	r24, 0x64	; 100
+ 16e:	90 e0       	ldi	r25, 0x00	; 0
+ 170:	fb d0       	rcall	.+502    	; 0x368 <timer2DelayMs>
+			
+			for (counter_motor_speed=u8_motor_speed;counter_motor_speed;counter_motor_speed--)
+ 172:	c0 93 62 00 	sts	0x0062, r28	; 0x800062 <counter_motor_speed>
+ 176:	cc 23       	and	r28, r28
+ 178:	69 f0       	breq	.+26     	; 0x194 <MotorDC_Speed_PollingWithT0+0x4e>
+			{
+				timer0SwPWM(counter_motor_speed,250);
+ 17a:	8c 2f       	mov	r24, r28
+ 17c:	6a ef       	ldi	r22, 0xFA	; 250
+				timer2DelayMs(50);
+ 17e:	bd d0       	rcall	.+378    	; 0x2fa <timer0SwPWM>
+ 180:	82 e3       	ldi	r24, 0x32	; 50
+ 182:	90 e0       	ldi	r25, 0x00	; 0
+ 184:	f1 d0       	rcall	.+482    	; 0x368 <timer2DelayMs>
+				timer2DelayMs(50);
+			}
+			
+			timer2DelayMs(100);
+			
+			for (counter_motor_speed=u8_motor_speed;counter_motor_speed;counter_motor_speed--)
+ 186:	80 91 62 00 	lds	r24, 0x0062	; 0x800062 <counter_motor_speed>
+ 18a:	81 50       	subi	r24, 0x01	; 1
+ 18c:	80 93 62 00 	sts	0x0062, r24	; 0x800062 <counter_motor_speed>
+ 190:	81 11       	cpse	r24, r1
+ 192:	f4 cf       	rjmp	.-24     	; 0x17c <MotorDC_Speed_PollingWithT0+0x36>
+			{
+				timer0SwPWM(counter_motor_speed,250);
+				timer2DelayMs(50);
+			}
+		
+	}
+ 194:	cf 91       	pop	r28
+ 196:	08 95       	ret
+
+00000198 <main>:
+
+
+int main (void)
+{
+	
+	timer0Init(T0_NORMAL_MODE,T0_OC0_DIS,T0_PRESCALER_8,0,0,T0_INTERRUPT_NORMAL);
+ 198:	ee 24       	eor	r14, r14
+ 19a:	e3 94       	inc	r14
+ 19c:	00 e0       	ldi	r16, 0x00	; 0
+ 19e:	20 e0       	ldi	r18, 0x00	; 0
+ 1a0:	42 e0       	ldi	r20, 0x02	; 2
+ 1a2:	60 e0       	ldi	r22, 0x00	; 0
+ 1a4:	80 e0       	ldi	r24, 0x00	; 0
+ 1a6:	83 d0       	rcall	.+262    	; 0x2ae <timer0Init>
+	timer2Init(T2_NORMAL_MODE,T2_OC2_DIS,T2_PRESCALER_64,0,0,0,T2_POLLING);
+ 1a8:	c1 2c       	mov	r12, r1
+ 1aa:	e1 2c       	mov	r14, r1
+ 1ac:	20 e0       	ldi	r18, 0x00	; 0
+ 1ae:	44 e0       	ldi	r20, 0x04	; 4
+ 1b0:	60 e0       	ldi	r22, 0x00	; 0
+ 1b2:	80 e0       	ldi	r24, 0x00	; 0
+ 1b4:	a7 d0       	rcall	.+334    	; 0x304 <timer2Init>
+	MotorDC_Init(MOT_1);
+ 1b6:	80 e0       	ldi	r24, 0x00	; 0
+ 1b8:	5e df       	rcall	.-324    	; 0x76 <MotorDC_Init>
+	MotorDC_Init(MOT_2);
+ 1ba:	81 e0       	ldi	r24, 0x01	; 1
+ 1bc:	5c df       	rcall	.-328    	; 0x76 <MotorDC_Init>
+ 1be:	8f b7       	in	r24, 0x3f	; 63
+	
+	SREG |= (1<<7);							//enable Global interrupt
+ 1c0:	80 68       	ori	r24, 0x80	; 128
+ 1c2:	8f bf       	out	0x3f, r24	; 63
+			
+				/*Testing LED Driver Functions*/
+				
+//Moving Forward for 5 seconds
+		MotorDC_Dir(MOT_1,FORWARD);
+ 1c4:	61 e0       	ldi	r22, 0x01	; 1
+ 1c6:	80 e0       	ldi	r24, 0x00	; 0
+ 1c8:	6f df       	rcall	.-290    	; 0xa8 <MotorDC_Dir>
+		MotorDC_Dir(MOT_2,FORWARD);
+ 1ca:	61 e0       	ldi	r22, 0x01	; 1
+ 1cc:	81 e0       	ldi	r24, 0x01	; 1
+ 1ce:	6c df       	rcall	.-296    	; 0xa8 <MotorDC_Dir>
+		MotorDC_Speed_PollingWithT0(50);
+ 1d0:	82 e3       	ldi	r24, 0x32	; 50
+ 1d2:	b9 df       	rcall	.-142    	; 0x146 <MotorDC_Speed_PollingWithT0>
+		MotorDC_Dir(MOT_1,STOP);
+ 1d4:	60 e0       	ldi	r22, 0x00	; 0
+ 1d6:	80 e0       	ldi	r24, 0x00	; 0
+ 1d8:	67 df       	rcall	.-306    	; 0xa8 <MotorDC_Dir>
+		MotorDC_Dir(MOT_2,STOP);
+ 1da:	60 e0       	ldi	r22, 0x00	; 0
+ 1dc:	81 e0       	ldi	r24, 0x01	; 1
+		
+//moving Backward for 5 seconds
+		MotorDC_Dir(MOT_1,BACKWARD);
+ 1de:	64 df       	rcall	.-312    	; 0xa8 <MotorDC_Dir>
+ 1e0:	62 e0       	ldi	r22, 0x02	; 2
+ 1e2:	80 e0       	ldi	r24, 0x00	; 0
+		MotorDC_Dir(MOT_2,BACKWARD);
+ 1e4:	61 df       	rcall	.-318    	; 0xa8 <MotorDC_Dir>
+ 1e6:	62 e0       	ldi	r22, 0x02	; 2
+		MotorDC_Speed_PollingWithT0(50);
+ 1e8:	81 e0       	ldi	r24, 0x01	; 1
+ 1ea:	5e df       	rcall	.-324    	; 0xa8 <MotorDC_Dir>
+		MotorDC_Dir(MOT_1,STOP);
+ 1ec:	82 e3       	ldi	r24, 0x32	; 50
+ 1ee:	ab df       	rcall	.-170    	; 0x146 <MotorDC_Speed_PollingWithT0>
+ 1f0:	60 e0       	ldi	r22, 0x00	; 0
+		MotorDC_Dir(MOT_2,STOP);
+ 1f2:	80 e0       	ldi	r24, 0x00	; 0
+ 1f4:	59 df       	rcall	.-334    	; 0xa8 <MotorDC_Dir>
+ 1f6:	60 e0       	ldi	r22, 0x00	; 0
+		timer0Stop();
+ 1f8:	81 e0       	ldi	r24, 0x01	; 1
+ 1fa:	56 df       	rcall	.-340    	; 0xa8 <MotorDC_Dir>
+//Roate By 90 degree		
+		MotorDC_Dir(MOT_1,FORWARD);
+ 1fc:	73 d0       	rcall	.+230    	; 0x2e4 <timer0Stop>
+ 1fe:	61 e0       	ldi	r22, 0x01	; 1
+ 200:	80 e0       	ldi	r24, 0x00	; 0
+		MotorDC_Dir(MOT_2,STOP);
+ 202:	52 df       	rcall	.-348    	; 0xa8 <MotorDC_Dir>
+ 204:	60 e0       	ldi	r22, 0x00	; 0
+ 206:	81 e0       	ldi	r24, 0x01	; 1
+ 208:	4f df       	rcall	.-354    	; 0xa8 <MotorDC_Dir>
+		gpioPinWrite(GPIOD,BIT4,HIGH);
+ 20a:	4f ef       	ldi	r20, 0xFF	; 255
+ 20c:	60 e1       	ldi	r22, 0x10	; 16
+ 20e:	83 e0       	ldi	r24, 0x03	; 3
+ 210:	fd d0       	rcall	.+506    	; 0x40c <gpioPinWrite>
+ 212:	84 e6       	ldi	r24, 0x64	; 100
+		timer2DelayMs(100);
+ 214:	90 e0       	ldi	r25, 0x00	; 0
+ 216:	a8 d0       	rcall	.+336    	; 0x368 <timer2DelayMs>
+ 218:	60 e0       	ldi	r22, 0x00	; 0
+ 21a:	80 e0       	ldi	r24, 0x00	; 0
+		MotorDC_Dir(MOT_1,STOP);
+ 21c:	45 df       	rcall	.-374    	; 0xa8 <MotorDC_Dir>
+ 21e:	60 e0       	ldi	r22, 0x00	; 0
+ 220:	81 e0       	ldi	r24, 0x01	; 1
+ 222:	42 df       	rcall	.-380    	; 0xa8 <MotorDC_Dir>
+		MotorDC_Dir(MOT_2,STOP);
+ 224:	ff cf       	rjmp	.-2      	; 0x224 <main+0x8c>
+
+00000226 <__vector_11>:
+ 226:	78 94       	sei
+ 228:	1f 92       	push	r1
+ 22a:	0f 92       	push	r0
+ 22c:	0f b6       	in	r0, 0x3f	; 63
+
+
+uint8_t timer2Read(void){
+					uint8_t Timer2ReadValue=0;
+					Timer2ReadValue |= TCNT2;   //read the value of the timer2 from TCNT2 register
+						}
+ 22e:	0f 92       	push	r0
+ 230:	11 24       	eor	r1, r1
+ 232:	2f 93       	push	r18
+ 234:	3f 93       	push	r19
+ 236:	4f 93       	push	r20
+ 238:	5f 93       	push	r21
+ 23a:	6f 93       	push	r22
+ 23c:	7f 93       	push	r23
+ 23e:	8f 93       	push	r24
+ 240:	9f 93       	push	r25
+ 242:	af 93       	push	r26
+ 244:	bf 93       	push	r27
+ 246:	ef 93       	push	r30
+ 248:	ff 93       	push	r31
+ 24a:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 24e:	8f 5f       	subi	r24, 0xFF	; 255
+ 250:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 254:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <PWM1DC>
+ 258:	89 13       	cpse	r24, r25
+ 25a:	08 c0       	rjmp	.+16     	; 0x26c <__vector_11+0x46>
+ 25c:	40 e0       	ldi	r20, 0x00	; 0
+ 25e:	60 e1       	ldi	r22, 0x10	; 16
+ 260:	83 e0       	ldi	r24, 0x03	; 3
+ 262:	d4 d0       	rcall	.+424    	; 0x40c <gpioPinWrite>
+ 264:	40 e0       	ldi	r20, 0x00	; 0
+ 266:	60 e2       	ldi	r22, 0x20	; 32
+ 268:	83 e0       	ldi	r24, 0x03	; 3
+ 26a:	d0 d0       	rcall	.+416    	; 0x40c <gpioPinWrite>
+ 26c:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 270:	84 36       	cpi	r24, 0x64	; 100
+ 272:	51 f4       	brne	.+20     	; 0x288 <__vector_11+0x62>
+ 274:	4f ef       	ldi	r20, 0xFF	; 255
+ 276:	60 e1       	ldi	r22, 0x10	; 16
+ 278:	83 e0       	ldi	r24, 0x03	; 3
+ 27a:	c8 d0       	rcall	.+400    	; 0x40c <gpioPinWrite>
+ 27c:	4f ef       	ldi	r20, 0xFF	; 255
+ 27e:	60 e2       	ldi	r22, 0x20	; 32
+ 280:	83 e0       	ldi	r24, 0x03	; 3
+ 282:	c4 d0       	rcall	.+392    	; 0x40c <gpioPinWrite>
+ 284:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 288:	80 eb       	ldi	r24, 0xB0	; 176
+ 28a:	82 bf       	out	0x32, r24	; 50
+ 28c:	ff 91       	pop	r31
+ 28e:	ef 91       	pop	r30
+ 290:	bf 91       	pop	r27
+ 292:	af 91       	pop	r26
+ 294:	9f 91       	pop	r25
+ 296:	8f 91       	pop	r24
+ 298:	7f 91       	pop	r23
+ 29a:	6f 91       	pop	r22
+ 29c:	5f 91       	pop	r21
+ 29e:	4f 91       	pop	r20
+ 2a0:	3f 91       	pop	r19
+ 2a2:	2f 91       	pop	r18
+ 2a4:	0f 90       	pop	r0
+ 2a6:	0f be       	out	0x3f, r0	; 63
+ 2a8:	0f 90       	pop	r0
+ 2aa:	1f 90       	pop	r1
+ 2ac:	18 95       	reti
+
+000002ae <timer0Init>:
+ 2ae:	ef 92       	push	r14
+ 2b0:	0f 93       	push	r16
+ 2b2:	93 b7       	in	r25, 0x33	; 51
+ 2b4:	90 68       	ori	r25, 0x80	; 128
+ 2b6:	93 bf       	out	0x33, r25	; 51
+ 2b8:	93 b7       	in	r25, 0x33	; 51
+ 2ba:	89 2b       	or	r24, r25
+ 2bc:	83 bf       	out	0x33, r24	; 51
+ 2be:	83 b7       	in	r24, 0x33	; 51
+ 2c0:	68 2b       	or	r22, r24
+ 2c2:	63 bf       	out	0x33, r22	; 51
+ 2c4:	83 b7       	in	r24, 0x33	; 51
+ 2c6:	84 2b       	or	r24, r20
+ 2c8:	83 bf       	out	0x33, r24	; 51
+ 2ca:	22 bf       	out	0x32, r18	; 50
+ 2cc:	0c bf       	out	0x3c, r16	; 60
+ 2ce:	89 b7       	in	r24, 0x39	; 57
+ 2d0:	e8 2a       	or	r14, r24
+ 2d2:	e9 be       	out	0x39, r14	; 57
+ 2d4:	50 e0       	ldi	r21, 0x00	; 0
+ 2d6:	50 93 64 00 	sts	0x0064, r21	; 0x800064 <prescaler_Timer0+0x1>
+ 2da:	40 93 63 00 	sts	0x0063, r20	; 0x800063 <prescaler_Timer0>
+ 2de:	0f 91       	pop	r16
+ 2e0:	ef 90       	pop	r14
+ 2e2:	08 95       	ret
+
+000002e4 <timer0Stop>:
+ 2e4:	83 b7       	in	r24, 0x33	; 51
+ 2e6:	8d 7f       	andi	r24, 0xFD	; 253
+ 2e8:	83 bf       	out	0x33, r24	; 51
+ 2ea:	83 b7       	in	r24, 0x33	; 51
+ 2ec:	8b 7f       	andi	r24, 0xFB	; 251
+ 2ee:	83 bf       	out	0x33, r24	; 51
+ 2f0:	83 b7       	in	r24, 0x33	; 51
+ 2f2:	8f 7e       	andi	r24, 0xEF	; 239
+ 2f4:	83 bf       	out	0x33, r24	; 51
+ 2f6:	12 be       	out	0x32, r1	; 50
+ 2f8:	08 95       	ret
+
+000002fa <timer0SwPWM>:
+ 2fa:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <PWM1DC>
+ 2fe:	80 eb       	ldi	r24, 0xB0	; 176
+ 300:	82 bf       	out	0x32, r24	; 50
+ 302:	08 95       	ret
+
+00000304 <timer2Init>:
+ 304:	cf 92       	push	r12
+ 306:	ef 92       	push	r14
+ 308:	0f 93       	push	r16
+ 30a:	95 b5       	in	r25, 0x25	; 37
+ 30c:	89 2b       	or	r24, r25
+ 30e:	85 bd       	out	0x25, r24	; 37
+ 310:	85 b5       	in	r24, 0x25	; 37
+ 312:	68 2b       	or	r22, r24
+ 314:	65 bd       	out	0x25, r22	; 37
+ 316:	85 b5       	in	r24, 0x25	; 37
+ 318:	84 2b       	or	r24, r20
+ 31a:	85 bd       	out	0x25, r24	; 37
+ 31c:	84 b5       	in	r24, 0x24	; 36
+ 31e:	28 2b       	or	r18, r24
+ 320:	24 bd       	out	0x24, r18	; 36
+ 322:	83 b5       	in	r24, 0x23	; 35
+ 324:	08 2b       	or	r16, r24
+ 326:	03 bd       	out	0x23, r16	; 35
+ 328:	82 b5       	in	r24, 0x22	; 34
+ 32a:	e8 2a       	or	r14, r24
+ 32c:	e2 bc       	out	0x22, r14	; 34
+ 32e:	89 b7       	in	r24, 0x39	; 57
+ 330:	c8 2a       	or	r12, r24
+ 332:	c9 be       	out	0x39, r12	; 57
+ 334:	50 e0       	ldi	r21, 0x00	; 0
+ 336:	50 93 66 00 	sts	0x0066, r21	; 0x800066 <prescaler_Timer2+0x1>
+ 33a:	40 93 65 00 	sts	0x0065, r20	; 0x800065 <prescaler_Timer2>
+ 33e:	0f 91       	pop	r16
+ 340:	ef 90       	pop	r14
+ 342:	cf 90       	pop	r12
+ 344:	08 95       	ret
+
+00000346 <timer2Start>:
+
+void timer2Start(void){
+						TCCR2|=prescaler_Timer2;
+ 346:	95 b5       	in	r25, 0x25	; 37
+ 348:	80 91 65 00 	lds	r24, 0x0065	; 0x800065 <prescaler_Timer2>
+ 34c:	89 2b       	or	r24, r25
+ 34e:	85 bd       	out	0x25, r24	; 37
+ 350:	08 95       	ret
+
+00000352 <timer2Stop>:
+					  }
+
+void timer2Stop(void){
+						Clr_Bit(TCCR2,BIT0);
+ 352:	85 b5       	in	r24, 0x25	; 37
+ 354:	8d 7f       	andi	r24, 0xFD	; 253
+ 356:	85 bd       	out	0x25, r24	; 37
+						Clr_Bit(TCCR2,BIT1);
+ 358:	85 b5       	in	r24, 0x25	; 37
+ 35a:	8b 7f       	andi	r24, 0xFB	; 251
+ 35c:	85 bd       	out	0x25, r24	; 37
+						Clr_Bit(TCCR2,BIT2);			//No clocking so the timer is stopped
+ 35e:	85 b5       	in	r24, 0x25	; 37
+ 360:	8f 7e       	andi	r24, 0xEF	; 239
+ 362:	85 bd       	out	0x25, r24	; 37
+						TCNT2=0x00;	
+ 364:	14 bc       	out	0x24, r1	; 36
+ 366:	08 95       	ret
+
+00000368 <timer2DelayMs>:
+					 }
+
+void timer2DelayMs(uint16_t u16_delay_in_ms){
+ 368:	1f 93       	push	r17
+ 36a:	cf 93       	push	r28
+ 36c:	df 93       	push	r29
+					
+											while(u16_delay_in_ms--){
+ 36e:	00 97       	sbiw	r24, 0x00	; 0
+ 370:	69 f0       	breq	.+26     	; 0x38c <timer2DelayMs+0x24>
+ 372:	ec 01       	movw	r28, r24
+					prescaler_Timer2=en_prescal;
+				}
+
+
+void timer2Set(uint8_t u8_a_value){
+									TCNT2 = u8_a_value;
+ 374:	16 e0       	ldi	r17, 0x06	; 6
+					 }
+
+void timer2DelayMs(uint16_t u16_delay_in_ms){
+					
+											while(u16_delay_in_ms--){
+												timer2Start();
+ 376:	e7 df       	rcall	.-50     	; 0x346 <timer2Start>
+					prescaler_Timer2=en_prescal;
+				}
+
+
+void timer2Set(uint8_t u8_a_value){
+									TCNT2 = u8_a_value;
+ 378:	14 bd       	out	0x24, r17	; 36
+void timer2DelayMs(uint16_t u16_delay_in_ms){
+					
+											while(u16_delay_in_ms--){
+												timer2Start();
+												timer2Set(6);
+												while (! (TIFR & (1<<6)));
+ 37a:	08 b6       	in	r0, 0x38	; 56
+ 37c:	06 fe       	sbrs	r0, 6
+ 37e:	fd cf       	rjmp	.-6      	; 0x37a <timer2DelayMs+0x12>
+												TIFR |= (1<<6);
+ 380:	88 b7       	in	r24, 0x38	; 56
+ 382:	80 64       	ori	r24, 0x40	; 64
+												timer2Stop();
+ 384:	88 bf       	out	0x38, r24	; 56
+ 386:	e5 df       	rcall	.-54     	; 0x352 <timer2Stop>
+ 388:	21 97       	sbiw	r28, 0x01	; 1
+						TCNT2=0x00;	
+					 }
+
+void timer2DelayMs(uint16_t u16_delay_in_ms){
+					
+											while(u16_delay_in_ms--){
+ 38a:	a9 f7       	brne	.-22     	; 0x376 <timer2DelayMs+0xe>
+												timer2Set(6);
+												while (! (TIFR & (1<<6)));
+												TIFR |= (1<<6);
+												timer2Stop();
+																	}	
+											  }
+ 38c:	df 91       	pop	r29
+ 38e:	cf 91       	pop	r28
+ 390:	1f 91       	pop	r17
+ 392:	08 95       	ret
+
+00000394 <gpioPinDirection>:
+ * 				- 0x00 -> Input
+ * 				- 0xff -> Output
+ */
+void gpioPinDirection(uint8_t u8_port, uint8_t u8_pins, uint8_t u8_direction){
+	
+		switch (u8_port)
+ 394:	81 30       	cpi	r24, 0x01	; 1
+ 396:	99 f0       	breq	.+38     	; 0x3be <gpioPinDirection+0x2a>
+ 398:	28 f0       	brcs	.+10     	; 0x3a4 <gpioPinDirection+0x10>
+ 39a:	82 30       	cpi	r24, 0x02	; 2
+ 39c:	e9 f0       	breq	.+58     	; 0x3d8 <gpioPinDirection+0x44>
+ 39e:	83 30       	cpi	r24, 0x03	; 3
+ 3a0:	41 f1       	breq	.+80     	; 0x3f2 <gpioPinDirection+0x5e>
+ 3a2:	08 95       	ret
+		{
+			case GPIOA:
+								if(u8_direction==OUTPUT){
+ 3a4:	4f 3f       	cpi	r20, 0xFF	; 255
+ 3a6:	21 f4       	brne	.+8      	; 0x3b0 <gpioPinDirection+0x1c>
+								PORTA_DIR |= u8_pins;
+ 3a8:	8a b3       	in	r24, 0x1a	; 26
+ 3aa:	68 2b       	or	r22, r24
+ 3ac:	6a bb       	out	0x1a, r22	; 26
+ 3ae:	08 95       	ret
+								}else if (u8_direction==INPUT)
+ 3b0:	41 11       	cpse	r20, r1
+ 3b2:	2b c0       	rjmp	.+86     	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+								{
+								PORTA_DIR &=~u8_pins;	
+ 3b4:	8a b3       	in	r24, 0x1a	; 26
+ 3b6:	60 95       	com	r22
+ 3b8:	68 23       	and	r22, r24
+ 3ba:	6a bb       	out	0x1a, r22	; 26
+ 3bc:	08 95       	ret
+								}
+								break;
+			case GPIOB:
+								if(u8_direction==OUTPUT){
+ 3be:	4f 3f       	cpi	r20, 0xFF	; 255
+ 3c0:	21 f4       	brne	.+8      	; 0x3ca <gpioPinDirection+0x36>
+									PORTB_DIR |= u8_pins;
+ 3c2:	87 b3       	in	r24, 0x17	; 23
+ 3c4:	68 2b       	or	r22, r24
+ 3c6:	67 bb       	out	0x17, r22	; 23
+ 3c8:	08 95       	ret
+								}else if (u8_direction==INPUT)
+ 3ca:	41 11       	cpse	r20, r1
+ 3cc:	1e c0       	rjmp	.+60     	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+								{
+									PORTB_DIR &=~u8_pins;
+ 3ce:	87 b3       	in	r24, 0x17	; 23
+ 3d0:	60 95       	com	r22
+ 3d2:	68 23       	and	r22, r24
+ 3d4:	67 bb       	out	0x17, r22	; 23
+ 3d6:	08 95       	ret
+								}
+								break;
+			case GPIOC:
+								if(u8_direction==OUTPUT){
+ 3d8:	4f 3f       	cpi	r20, 0xFF	; 255
+ 3da:	21 f4       	brne	.+8      	; 0x3e4 <gpioPinDirection+0x50>
+									PORTC_DIR |= u8_pins;
+ 3dc:	84 b3       	in	r24, 0x14	; 20
+ 3de:	68 2b       	or	r22, r24
+ 3e0:	64 bb       	out	0x14, r22	; 20
+ 3e2:	08 95       	ret
+								}else if (u8_direction==INPUT)
+ 3e4:	41 11       	cpse	r20, r1
+ 3e6:	11 c0       	rjmp	.+34     	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+								{
+									PORTC_DIR &=~u8_pins;
+ 3e8:	84 b3       	in	r24, 0x14	; 20
+ 3ea:	60 95       	com	r22
+ 3ec:	68 23       	and	r22, r24
+ 3ee:	64 bb       	out	0x14, r22	; 20
+ 3f0:	08 95       	ret
+								}
+								break;
+			
+			case GPIOD:
+								if(u8_direction==OUTPUT){
+ 3f2:	4f 3f       	cpi	r20, 0xFF	; 255
+ 3f4:	21 f4       	brne	.+8      	; 0x3fe <gpioPinDirection+0x6a>
+									PORTD_DIR |= u8_pins;
+ 3f6:	81 b3       	in	r24, 0x11	; 17
+ 3f8:	68 2b       	or	r22, r24
+ 3fa:	61 bb       	out	0x11, r22	; 17
+ 3fc:	08 95       	ret
+								}else if (u8_direction==INPUT)
+ 3fe:	41 11       	cpse	r20, r1
+ 400:	04 c0       	rjmp	.+8      	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+								{
+									PORTD_DIR &=~u8_pins;
+ 402:	81 b3       	in	r24, 0x11	; 17
+ 404:	60 95       	com	r22
+ 406:	68 23       	and	r22, r24
+ 408:	61 bb       	out	0x11, r22	; 17
+ 40a:	08 95       	ret
+
+0000040c <gpioPinWrite>:
+ * 				- BIT7
+ * @param value
+ */
+void gpioPinWrite(uint8_t u8_port, uint8_t u8_pins, uint8_t u8_value){
+	
+				switch (u8_port)
+ 40c:	81 30       	cpi	r24, 0x01	; 1
+ 40e:	99 f0       	breq	.+38     	; 0x436 <gpioPinWrite+0x2a>
+ 410:	28 f0       	brcs	.+10     	; 0x41c <gpioPinWrite+0x10>
+ 412:	82 30       	cpi	r24, 0x02	; 2
+ 414:	e9 f0       	breq	.+58     	; 0x450 <gpioPinWrite+0x44>
+ 416:	83 30       	cpi	r24, 0x03	; 3
+ 418:	41 f1       	breq	.+80     	; 0x46a <gpioPinWrite+0x5e>
+ 41a:	08 95       	ret
+				{
+					case GPIOA:
+								if(u8_value==HIGH){
+ 41c:	4f 3f       	cpi	r20, 0xFF	; 255
+ 41e:	21 f4       	brne	.+8      	; 0x428 <gpioPinWrite+0x1c>
+									PORTA_DATA |= u8_pins;
+ 420:	8b b3       	in	r24, 0x1b	; 27
+ 422:	68 2b       	or	r22, r24
+ 424:	6b bb       	out	0x1b, r22	; 27
+ 426:	08 95       	ret
+								}else if (u8_value==LOW)
+ 428:	41 11       	cpse	r20, r1
+ 42a:	2b c0       	rjmp	.+86     	; 0x482 <gpioPinWrite+0x76>
+								{
+									PORTA_DATA &=~u8_pins;
+ 42c:	8b b3       	in	r24, 0x1b	; 27
+ 42e:	60 95       	com	r22
+ 430:	68 23       	and	r22, r24
+ 432:	6b bb       	out	0x1b, r22	; 27
+ 434:	08 95       	ret
+								}
+								break;
+					case GPIOB:
+								if(u8_value==HIGH){
+ 436:	4f 3f       	cpi	r20, 0xFF	; 255
+ 438:	21 f4       	brne	.+8      	; 0x442 <gpioPinWrite+0x36>
+									PORTB_DATA |= u8_pins;
+ 43a:	88 b3       	in	r24, 0x18	; 24
+ 43c:	68 2b       	or	r22, r24
+ 43e:	68 bb       	out	0x18, r22	; 24
+ 440:	08 95       	ret
+								}else if (u8_value==LOW)
+ 442:	41 11       	cpse	r20, r1
+ 444:	1e c0       	rjmp	.+60     	; 0x482 <gpioPinWrite+0x76>
+								{
+									PORTB_DATA &=~u8_pins;
+ 446:	88 b3       	in	r24, 0x18	; 24
+ 448:	60 95       	com	r22
+ 44a:	68 23       	and	r22, r24
+ 44c:	68 bb       	out	0x18, r22	; 24
+ 44e:	08 95       	ret
+								}
+								break;
+					case GPIOC:
+								if(u8_value==HIGH){
+ 450:	4f 3f       	cpi	r20, 0xFF	; 255
+ 452:	21 f4       	brne	.+8      	; 0x45c <gpioPinWrite+0x50>
+									PORTC_DATA |= u8_pins;
+ 454:	85 b3       	in	r24, 0x15	; 21
+ 456:	68 2b       	or	r22, r24
+ 458:	65 bb       	out	0x15, r22	; 21
+ 45a:	08 95       	ret
+								}else if (u8_value==LOW)
+ 45c:	41 11       	cpse	r20, r1
+ 45e:	11 c0       	rjmp	.+34     	; 0x482 <gpioPinWrite+0x76>
+								{
+									PORTC_DATA &=~u8_pins;
+ 460:	85 b3       	in	r24, 0x15	; 21
+ 462:	60 95       	com	r22
+ 464:	68 23       	and	r22, r24
+ 466:	65 bb       	out	0x15, r22	; 21
+ 468:	08 95       	ret
+								}
+								break;
+					
+					case GPIOD:
+								if(u8_value==HIGH){
+ 46a:	4f 3f       	cpi	r20, 0xFF	; 255
+ 46c:	21 f4       	brne	.+8      	; 0x476 <gpioPinWrite+0x6a>
+									PORTD_DATA |= u8_pins;
+ 46e:	82 b3       	in	r24, 0x12	; 18
+ 470:	68 2b       	or	r22, r24
+ 472:	62 bb       	out	0x12, r22	; 18
+ 474:	08 95       	ret
+								}else if (u8_value==LOW)
+ 476:	41 11       	cpse	r20, r1
+ 478:	04 c0       	rjmp	.+8      	; 0x482 <gpioPinWrite+0x76>
+								{
+									PORTD_DATA &=~u8_pins;
+ 47a:	82 b3       	in	r24, 0x12	; 18
+ 47c:	60 95       	com	r22
+ 47e:	68 23       	and	r22, r24
+ 480:	62 bb       	out	0x12, r22	; 18
+ 482:	08 95       	ret
+
+00000484 <_exit>:
+ 484:	f8 94       	cli
+
+00000486 <__stop_program>:
+ 486:	ff cf       	rjmp	.-2      	; 0x486 <__stop_program>
